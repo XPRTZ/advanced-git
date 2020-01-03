@@ -1,0 +1,8 @@
+* text=auto
+
+*.jpg diff=exif
+*.jpeg diff=exif
+
+yarn.lock export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore

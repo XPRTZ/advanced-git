@@ -4,13 +4,13 @@ Explaining git features beyond git push
 
 ## Topics
 
-- config levels
+- Config levels
 - .gitattributes
 - Submodules
 - Hooks
 - Bisect
 
-## 0) config levels
+## 0) Config levels
 
 Evaluated from the repository up
 - local (repository/.git/config)
@@ -33,6 +33,34 @@ Sometimes we need to retain the line endings in the file itself
 
 ```
 tests/newline/CRLF.js text eol=crl
+```
+
+Specify files as binary
+```
+*.jpg binary
+*.jpeg binary
+```
+
+Diffing binary files
+```
+*.jpg diff=exif
+*.jpeg diff=exif
+```
+
+```
+git config --global diff.exif.textconv exiftool
+```
+
+Remove files from export
+```
+yarn.lock export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+```
+
+Create an export
+```
+git archive -o latest.zip HEAD
 ```
 
 Default decissions on merge
