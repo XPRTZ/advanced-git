@@ -1,4 +1,4 @@
-import { syntaxHighlighter } from 'mdx-deck/themes'
+import { syntaxHighlighter, swiss } from 'mdx-deck/themes'
 import {
     Invert,
     Split,
@@ -8,14 +8,14 @@ import {
     Image
 } from 'mdx-deck'
 import customTheme from './theme'
-import Card from './components/card'
+import Layout from './components/layout'
 
-export const themes = [syntaxHighlighter, customTheme]
+export const themes = [syntaxHighlighter, swiss, customTheme]
 
-import image from './images/image.jpg'
+import hero from './images/hero.jpg'
 
 <Image
-  src={image}
+  src={hero}
   style={{
     width: '100vw',
     height: '100vh',
@@ -28,13 +28,147 @@ import image from './images/image.jpg'
 ---
 
 import git from './images/git.svg'
+import avatar from './images/avatar.jpg'
+import { Image as Avatar } from 'rebass'
 
-<Split>
+<Layout>
 
 <img src={git} />
 
+<Horizontal>
+
 # Advanced git techniques
 
+</Horizontal>
+
+<Split>
+
+<Avatar
+  src={avatar}
+  sx={{
+    width: 200,
+    height: 200,
+    borderRadius: 9999,
+  }}
+/>
+
 ### Maarten Louage
+@maartenlouage
 
 </Split>
+
+</Layout>
+
+---
+
+<Layout>
+
+## Agenda
+
+- Configuration
+- .gitattributes
+- Submodules
+- Hooks
+- Bisect
+
+</Layout>
+
+---
+
+<Layout>
+
+## Configuration
+
+Evaluated from the repository up
+- local (repository/.git/config)
+- global (/home/maarten/.gitconfig)
+- system (/etc/git/gitconfig)
+
+Edit a specific level
+```
+git config --global -e
+```
+
+### use case
+
+Edit the local repository if you want to commit with a different username than the one defined on the global level
+
+</Layout>
+
+---
+
+<Layout>
+
+## .gitattributes (1/2)
+
+Normalize the line endings
+```
+* text=auto
+```
+
+Specify files as binary
+```
+*.jpg binary
+*.jpeg binary
+```
+
+Diffing binary files
+```
+*.jpg diff=exif
+*.jpeg diff=exif
+```
+
+```
+git config --global diff.exif.textconv exiftool
+```
+
+</Layout>
+
+---
+
+<Layout>
+
+## .gitattributes (2/2)
+
+Remove files from export
+```
+yarn.lock export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
+```
+
+Default decisions on merge
+```
+yarn.lock merge=ours
+package-lock.json merge=ours
+```
+
+</Layout>
+
+---
+
+<Layout>
+
+## Submodules
+
+A construct within Git that enables you to keep a separate Git repository as a subdirectory within an existing repository. This effectively keeps two separate repositories linked together within a project.
+
+</Layout>
+
+---
+
+<Layout>
+
+## Hooks
+
+</Layout>
+
+---
+
+<Layout>
+
+## Bisect
+
+</Layout>
+
+---

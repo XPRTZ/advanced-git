@@ -31,5 +31,6 @@
     "dotenv": "^8.2.0",
     "mdx-deck": "^3.0.13",
     "rebass": "^4.0.7"
-  }
+  },
+  "dependencies": {}
 }

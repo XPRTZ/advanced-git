@@ -17,19 +17,29 @@ export default {
         h2: {
           textTransform: 'uppercase',
           letterSpacing: '0.1em',
-          color: '#276b44'
+          color: '#276b44',
+          "&:before": {
+            content: '""',
+            float: 'left',
+            display: 'block',
+            width: '5px',
+            height: '90px',
+            marginRight: '20px',
+            backgroundColor: 'primary'
+          }
         },
-        h3: {
-          textTransform: 'lowercase',
-          color: '#text'
+        ul: {
+          paddingLeft: '100px'
         },
-        h4: {
-          textTransform: 'uppercase',
-          letterSpacing: '0.1em',
-          color: '#text'
+        li: {
+          marginTop: '50px',
+          marginBottom: '50px'
         },
         blockquote: {
           fontStyle: 'italic',
         },
+        Slide: {
+          padding: 0
+        }
       }
   }
