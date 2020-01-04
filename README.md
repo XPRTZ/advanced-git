@@ -29,6 +29,9 @@ Normalize the line endings
 * text=auto
 ```
 
+Windows had CRLF
+Unix has LF
+
 Sometimes we need to retain the line endings in the file itself
 
 ```
@@ -69,7 +72,7 @@ yarn.lock merge=ours
 package-lock.json merge=ours
 ```
 
-## 2) Submodules
+## 2) Submodules and subtrees
 
 Add directory to put the submodule in
 ```
@@ -78,7 +81,7 @@ mkdir external
 
 Add the submodule
 ```
-git submodule add <url> external/example-submodule
+git submodule add <url> <location>
 ```
 Navigate to the submodule and see all files are there
 Open up the .gitsubmodules file and see the reference
@@ -108,21 +111,14 @@ No files are in the external directory
 
 ```
 git submodule init
+git submodule update
 ```
-
-Update a submodule, go to the submodule location, fetch and checkout a new branch. Commit the changes on the master repository.
 
 Remove a submodule
 
 ```
 git submodule deinit external/example-submodule
 git rm external/example-submodule
-```
-
-```
-git status
-git add .
-git commit -m "Remove submodule"
 ```
 
 Working in teams
@@ -136,11 +132,27 @@ Make a change in a submodule, commit locally, don't push
 Go to the parent, git status and see the updated reference.
 Create a commit for it. This is a problem if the parent gets pushed. This will break the repository for the other team members.
 
-Change a config value to spot the missing pushes
-
 ```
 git config --global push.recursiveSubmodules on-demand
 ```
 
+Or if you don't want to set that global setting
+
+```
+git push --recurse-submodules=on-demand
+```
+
+Get all the diffs for all submodules
+
+```
+git submodule foreach --recursive git diff
+```
+
 ## 3) Hooks
+
+Modify the location of the hooks directory
+
+```
+git config --local core.hooksPath .githooks
+```
 ## 4) Bisect

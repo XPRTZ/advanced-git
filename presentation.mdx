@@ -106,10 +106,9 @@ Normalize the line endings
 * text=auto
 ```
 
-Specify files as binary
+Usually the better option then relying on
 ```
-*.jpg binary
-*.jpeg binary
+git config --global core.autocrlf true
 ```
 
 Diffing binary files
@@ -149,9 +148,56 @@ package-lock.json merge=ours
 
 <Layout>
 
-## Submodules
+## Submodules (1/4)
 
 A construct within Git that enables you to keep a separate Git repository as a subdirectory within an existing repository. This effectively keeps two separate repositories linked together within a project.
+
+</Layout>
+
+---
+
+<Layout>
+
+## Submodules (2/4)
+
+If you need to maintain a strict version management over your external dependencies.
+
+- When an external component or subproject is changing too fast or upcoming changes will break the API, you can lock the code to a specific commit.
+- When you have a component that isn’t updated very often and you want to track it as a vendor dependency.
+- When you are delegating a piece of the project to a third party and you want to integrate their work at a specific time or release.
+
+</Layout>
+
+---
+
+<Layout>
+
+## Submodules (3/4)
+
+### Useful configuration
+```
+git config --global status.submoduleSummary true
+```
+
+```
+git config --global push.recursiveSubmodules on-demand
+```
+
+</Layout>
+
+---
+
+<Layout>
+
+## Submodules (4/4)
+
+### Sample workflow
+
+```
+git pull
+git submodule sync --recursive
+git submodule update --init --recursive
+```
 
 </Layout>
 
