@@ -213,8 +213,31 @@ git submodule update --init --recursive
 
 <Layout>
 
-## Bisect
+## Bisect (1/2)
 
+Bisect comes from a binary search algorithm and it’s an efficient way to search through a large set of data. By repetitively dividing the batch in half and performing some kind of validation check, we are able to scan through a huge amount of data in a limited number of iterations. Bisect could be performed manually, by simply “checking out” to a specific commit and looking through the code.
+
+</Layout>
+
+---
+
+<Layout>
+
+## Bisect (2/2)
+
+```
+git bisect
+git bisect bad
+git bisect good <SHA1>
+```
+
+```
+git bisect bad/good
+```
+
+```
+git bisect reset
+```
 </Layout>
 
 ---

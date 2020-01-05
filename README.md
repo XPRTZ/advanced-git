@@ -122,6 +122,7 @@ git rm external/example-submodule
 ```
 
 Working in teams
+
 ```
 git pull
 git submodule sync --recursive
@@ -156,3 +157,15 @@ Modify the location of the hooks directory
 git config --local core.hooksPath .githooks
 ```
 ## 4) Bisect
+
+```
+git checkout bisect-demo
+```
+
+```
+git bisect
+git bisect bad
+git bisect good <SHA1>
+git bisect bad/good
+git bisect reset
+```
