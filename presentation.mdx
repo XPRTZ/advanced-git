@@ -89,10 +89,6 @@ Edit a specific level
 git config --global -e
 ```
 
-### use case
-
-Edit the local repository if you want to commit with a different username than the one defined on the global level
-
 </Layout>
 
 ---
@@ -150,7 +146,11 @@ package-lock.json merge=ours
 
 ## Submodules (1/4)
 
-A construct within Git that enables you to keep a separate Git repository as a subdirectory within an existing repository. This effectively keeps two separate repositories linked together within a project.
+> A construct within Git that enables you to keep a separate Git repository as a subdirectory within an existing repository. This effectively keeps two separate repositories linked together within a project.
+
+Submodules are not the only way to manage dependencies in Git. An alternative is subtree. Subtree is seen as less complex than submodules.
+
+If the dependencies get really complex or the project is big, managing the dependencies through Git is often not the best solution. Try real package manager like nuget, npm, pip, ...
 
 </Layout>
 
@@ -203,9 +203,27 @@ git submodule update --init --recursive
 
 ---
 
+import hooks from './images/hooks_medium.png'
+
 <Layout>
 
-## Hooks
+## Hooks (1/2)
+
+Git hooks are scripts that run automatically every time a particular event occurs in a Git repository. They let you customize Git’s internal behavior and trigger customizable actions at key points in the development life cycle.
+
+<img src={hooks} alt="Hooks" height="400px" />
+
+</Layout>
+
+---
+
+<Layout>
+
+## Hooks (1/2)
+
+All of the local hooks can be altered or completely uninstalled by the owner of a repository. It’s entirely up to each team member whether or not they actually use a hook. With this in mind, it’s best to think of Git hooks as a convenient developer tool rather than a strictly enforced development policy.
+
+It is possible to reject commits that do not conform to some standard using server-side hooks.
 
 </Layout>
 
@@ -215,7 +233,7 @@ git submodule update --init --recursive
 
 ## Bisect (1/2)
 
-Bisect comes from a binary search algorithm and it’s an efficient way to search through a large set of data. By repetitively dividing the batch in half and performing some kind of validation check, we are able to scan through a huge amount of data in a limited number of iterations. Bisect could be performed manually, by simply “checking out” to a specific commit and looking through the code.
+Bisect comes from a binary search algorithm and it’s an efficient way to search through a large set of data. By repetitively dividing the batch in half and performing some kind of validation check, we are able to scan through a huge amount of data in a limited number of iterations. Bisect could be performed manually, by simply "checking out" to a specific commit and looking through the code.
 
 </Layout>
 
@@ -241,3 +259,12 @@ git bisect reset
 </Layout>
 
 ---
+
+<Layout>
+
+## Resources
+
+- [Atlassian Advanced Git tutorials](https://www.atlassian.com/git/tutorials/advanced-overview)
+- [Pluralsight Advanced Git Techniques](https://app.pluralsight.com/library/courses/advanced-git-techniques/table-of-contents)
+
+</Layout>
